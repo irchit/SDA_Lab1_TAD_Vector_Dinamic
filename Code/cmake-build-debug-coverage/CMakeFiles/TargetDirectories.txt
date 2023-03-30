@@ -1,0 +1,3 @@
+D:/Facultate/An1/Sem2/SDA/SDA_Lab1_TAD_Vector_Dinamic/Code/cmake-build-debug-coverage/CMakeFiles/Code.dir
+D:/Facultate/An1/Sem2/SDA/SDA_Lab1_TAD_Vector_Dinamic/Code/cmake-build-debug-coverage/CMakeFiles/edit_cache.dir
+D:/Facultate/An1/Sem2/SDA/SDA_Lab1_TAD_Vector_Dinamic/Code/cmake-build-debug-coverage/CMakeFiles/rebuild_cache.dir

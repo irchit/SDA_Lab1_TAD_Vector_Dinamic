@@ -1,0 +1,6 @@
+# ninja log v5
+3	479	7018894496266140	CMakeFiles/Code.dir/main.cpp.obj	dde27cfe64d06881
+479	572	7018894497172375	Code.exe	ab3b98651f601583
+2	113	7018894186875350	CMakeFiles/Code.dir/vectorDinamic.cpp.obj	54ad1c15c4397f10
+14	73	7018894186465351	CMakeFiles/Code.dir/iteratorVectorDinamic.cpp.obj	c0e2aac17d7acb2b
+6	326	7018894188995347	CMakeFiles/Code.dir/tests.cpp.obj	6d54d77a58a2d7f9

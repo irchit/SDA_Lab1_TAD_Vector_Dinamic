@@ -1,0 +1,51 @@
+        -:    0:Source:D:/Facultate/An1/Sem2/SDA/SDA_Lab1_TAD_Vector_Dinamic/Code/iteratorVectorDinamic.cpp
+        -:    0:Graph:D:\Facultate\An1\Sem2\SDA\SDA_Lab1_TAD_Vector_Dinamic\Code\cmake-build-debug-coverage\CMakeFiles\Code.dir\iteratorVectorDinamic.cpp.gcno
+        -:    0:Data:D:\Facultate\An1\Sem2\SDA\SDA_Lab1_TAD_Vector_Dinamic\Code\cmake-build-debug-coverage\CMakeFiles\Code.dir\iteratorVectorDinamic.cpp.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by irchit on 3/30/2023.
+        -:    3://
+        -:    4:
+        -:    5:#include "iteratorVectorDinamic.h"
+        -:    6:
+function _ZN21IteratorVectorDinamicC2ERK13VectorDinamic called 6 returned 100% blocks executed 100%
+        6:    7:IteratorVectorDinamic::IteratorVectorDinamic(const VectorDinamic& _v) : v(_v) {
+        6:    8:    this->pozitie = 0;
+        6:    9:}
+        -:   10:
+function _ZN21IteratorVectorDinamic4primEv called 5 returned 100% blocks executed 100%
+        5:   11:void IteratorVectorDinamic::prim() {
+        5:   12:    this->pozitie = 0;
+        5:   13:}
+        -:   14:
+function _ZNK21IteratorVectorDinamic5validEv called 800372 returned 100% blocks executed 100%
+   800372:   15:bool IteratorVectorDinamic::valid() const{
+   800372:   16:    return (this->pozitie < this->v.dim());
+   800372:   16-block  0
+call    0 returned 800372
+        -:   17:}
+        -:   18:
+function _ZNK21IteratorVectorDinamic7elementEv called 200121 returned 100% blocks executed 83%
+   200121:   19:TElem IteratorVectorDinamic::element() const{
+   200121:   20:    if (this->valid())
+   200121:   20-block  0
+call    0 returned 200121
+branch  1 taken 200121 (fallthrough)
+branch  2 taken 0
+   200121:   21:        return this->v.element(this->pozitie);
+   200121:   21-block  0
+call    0 returned 200121
+    #####:   22:    return -1;
+    %%%%%:   22-block  0
+        -:   23:}
+        -:   24:
+function _ZN21IteratorVectorDinamic7urmatorEv called 400121 returned 100% blocks executed 100%
+   400121:   25:void IteratorVectorDinamic::urmator() {
+   400121:   26:    if (this->valid())
+   400121:   26-block  0
+call    0 returned 400121
+branch  1 taken 400121 (fallthrough)
+branch  2 taken 0
+   400121:   27:        this->pozitie++;
+   400121:   27-block  0
+   400121:   28:}

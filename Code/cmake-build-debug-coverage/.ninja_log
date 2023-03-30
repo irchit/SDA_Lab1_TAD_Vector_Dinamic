@@ -1,0 +1,15 @@
+# ninja log v5
+9	153	7018894597980431	CMakeFiles/Code.dir/iteratorVectorDinamic.cpp.obj	a9b349816a29cb82
+5	189	7018894598340791	CMakeFiles/Code.dir/vectorDinamic.cpp.obj	b6a76c5d22fa60e6
+15	213	7018894598590436	CMakeFiles/Code.dir/tests.cpp.obj	579ed4e713c1f37a
+0	748	7018894603920433	CMakeFiles/Code.dir/main.cpp.obj	36d5627088241e0b
+749	868	7018894605092099	Code.exe	dda668883fa9241e
+3	553	7018895014611495	CMakeFiles/Code.dir/main.cpp.obj	36d5627088241e0b
+2	499	7018895181959670	CMakeFiles/Code.dir/main.cpp.obj	36d5627088241e0b
+6	264	7018895734458265	CMakeFiles/Code.dir/vectorDinamic.cpp.obj	b6a76c5d22fa60e6
+2	678	7018895738603791	CMakeFiles/Code.dir/main.cpp.obj	36d5627088241e0b
+2	541	7018895840478565	CMakeFiles/Code.dir/main.cpp.obj	36d5627088241e0b
+542	712	7018895842148561	Code.exe	dda668883fa9241e
+2	608	7018895996609456	CMakeFiles/Code.dir/main.cpp.obj	36d5627088241e0b
+2	160	7018896820779949	CMakeFiles/Code.dir/tests.cpp.obj	579ed4e713c1f37a
+160	265	7018896821799941	Code.exe	dda668883fa9241e
