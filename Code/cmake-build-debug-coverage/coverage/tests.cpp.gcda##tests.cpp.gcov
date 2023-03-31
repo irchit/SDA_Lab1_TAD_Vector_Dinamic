@@ -18,7 +18,7 @@ function _Z9testScurtv called 1 returned 100% blocks executed 69%
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-       1*:   12:    assert(v.dim() == 0); //adaug niste elemente
+       1*:   12:    assert(v.dim() == 0); //adauga niste elemente
         1:   12-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)

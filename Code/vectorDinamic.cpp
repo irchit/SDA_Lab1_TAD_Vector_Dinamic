@@ -4,11 +4,13 @@
 #include "VectorDinamic.h"
 #include "IteratorVectorDinamic.h"
 #include <exception>
+#include <iostream>
+#include <stdexcept>
 
 using namespace std;
 
 int VectorDinamic::elementeUnice(int st, int dr) const {
-    /*
+    /**
      * * Returneaza numarul de elemente unice din vector
      * * Complexitatea este theta(n^2)
      */
@@ -27,7 +29,7 @@ int VectorDinamic::elementeUnice(int st, int dr) const {
 }
 
 void VectorDinamic::redim() {
-    /*
+    /**
      * * Redimensioneaza vectorul de elemente
      * * Complexitatea este theta(n)
      */
@@ -40,7 +42,7 @@ void VectorDinamic::redim() {
 }
 
 VectorDinamic::VectorDinamic(int cp) {
-    /*
+    /**
      * * Constructorul clasei VectorDinamic
      * * Complexitatea este theta(1)
      */
@@ -54,7 +56,7 @@ VectorDinamic::~VectorDinamic() {
 }
 
 int VectorDinamic::dim() const{
-    /*
+    /**
      * * Returneaza dimensiunea vectorului
      * * Complexitatea este theta(1)
      */
@@ -62,7 +64,7 @@ int VectorDinamic::dim() const{
 }
 
 TElem VectorDinamic::element(int i) const{
-    /*
+    /**
      * * Returneaza elementul de pe pozitia i
      * * Complexitatea este theta(1)
      */
@@ -72,7 +74,7 @@ TElem VectorDinamic::element(int i) const{
 }
 
 void VectorDinamic::adaugaSfarsit(TElem e) {
-    /*
+    /**
      * * Adauga un element la sfarsitul vectorului
      * * Complexitatea este theta(1) in cazul in care nu este nevoie de redimensionare
      * * Complexitatea este theta(n) in cazul in care este nevoie de redimensionare
@@ -85,7 +87,7 @@ void VectorDinamic::adaugaSfarsit(TElem e) {
 }
 
 void VectorDinamic::adauga(int i, TElem e) {
-    /*
+    /**
      * * Adauga un element pe pozitia i
      * * Complexitatea este theta(n)
      */
@@ -101,7 +103,7 @@ void VectorDinamic::adauga(int i, TElem e) {
 }
 
 TElem VectorDinamic::modifica(int i, TElem e) {
-    /*
+    /**
      * * Modifica elementul de pe pozitia i
      * * Complexitatea este theta(1)
      */
@@ -114,7 +116,7 @@ TElem VectorDinamic::modifica(int i, TElem e) {
 }
 
 TElem VectorDinamic::sterge(int i) {
-    /*
+    /**
      * * Sterge elementul de pe pozitia i
      * * Complexitatea este theta(n)
      */
@@ -130,6 +132,44 @@ TElem VectorDinamic::sterge(int i) {
 
 IteratorVectorDinamic VectorDinamic::iterator() {
     return IteratorVectorDinamic(*this);
+}
+
+void VectorDinamic::eliminaIntre(int i, int j) {
+    /**
+     * Conditii:
+     *      pre:
+     *          vector -> VectorDinamic, unde dimensiunea lenght=vector.dim()
+     *          i, j -> int
+     *
+     *      post:
+     *          vector' -> VectorDinamic, unde lenght' = lenght - (j - i + 1)
+     *
+     * Pseudocod:
+     *      eliminaIntre(vector, i, j):
+     *      |    daca i < 0 sau j < 0 sau i >= vector.dimensiune sau j >= vector.dimensiune atunci:
+     *      |    |   arunca exceptie "Pozitii invalide"
+     *      |    ++
+     *      |    daca i > j atucni:
+     *      |    |   arunca exceptie "Pozitii invalide"
+     *      |    ++
+     *      |    pentru k = j; k >= i; k -= 1 executa:
+     *      |    |   sterge(vector, k)
+     *      |    ++
+     *      ++
+     *
+     * Complexitate:
+     *      Best case (i == j || j < i || i < 0 || j < 0 || i >= vector.dim() || j >= vector.dim()): theta(1)
+     *      Worst case (i == 0 && j == vector.dim() - 1): theta(n)
+     *      Avg case (i < j): theta(j - i) <=> theta(n)
+     *
+     *      Complexitate generala: O(n)
+     */
+    if (i < 0 || i >= this->dimensiune || j < 0 || j >= this->dimensiune)
+        throw -1;
+    if (i > j)
+        throw -1;
+    for (int k = j; k >= i; k--)
+        this->sterge(k);
 }
 
 

@@ -8,176 +8,327 @@
         -:    4:#include "VectorDinamic.h"
         -:    5:#include "IteratorVectorDinamic.h"
         -:    6:#include <exception>
-        -:    7:
-        -:    8:using namespace std;
+        -:    7:#include <iostream>
+        -:    8:#include <stdexcept>
         -:    9:
-function _ZN13VectorDinamic5redimEv called 18 returned 100% blocks executed 90%
-       18:   10:void VectorDinamic::redim() {
-       18:   11:    this->capacitate *= 2;
-      18*:   12:    auto *aux = new TElem[this->capacitate];
-       18:   12-block  0
-branch  0 taken 18 (fallthrough)
+        -:   10:using namespace std;
+        -:   11:
+function _ZNK13VectorDinamic13elementeUniceEii called 1 returned 100% blocks executed 94%
+        1:   12:int VectorDinamic::elementeUnice(int st, int dr) const {
+        -:   13:    /**
+        -:   14:     * * Returneaza numarul de elemente unice din vector
+        -:   15:     * * Complexitatea este theta(n^2)
+        -:   16:     */
+        1:   17:    if (st < 0 || dr >= this->dimensiune || st > dr)
+        1:   17-block  0
+branch  0 taken 1 (fallthrough)
 branch  1 taken 0
-       18:   12-block  1
-    %%%%%:   12-block  2
+        1:   17-block  1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:   17-block  2
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    #####:   18:        return -1;
+    %%%%%:   18-block  0
+        1:   19:    int nr = 0;
+        6:   20:    for (int i = st; i <= dr; i++) {
+        1:   20-block  0
+        5:   20-block  1
+        6:   20-block  2
+branch  0 taken 5
+branch  1 taken 1 (fallthrough)
+        5:   21:        bool ok = true;
+       15:   22:        for (int j = st; j < i; j++)
+        5:   22-block  0
+       10:   22-block  1
+       15:   22-block  2
+branch  0 taken 10
+branch  1 taken 5 (fallthrough)
+       10:   23:            if (this->elemente[i] == this->elemente[j])
+       10:   23-block  0
+branch  0 taken 3 (fallthrough)
+branch  1 taken 7
+        3:   24:                ok = false;
+        3:   24-block  0
+        5:   25:        if (ok)
+        5:   25-block  0
+branch  0 taken 3 (fallthrough)
+branch  1 taken 2
+        3:   26:            nr++;
+        3:   26-block  0
+        -:   27:    }
+        1:   28:    return nr;
+        1:   28-block  0
+        -:   29:}
+        -:   30:
+function _ZN13VectorDinamic5redimEv called 19 returned 100% blocks executed 90%
+       19:   31:void VectorDinamic::redim() {
+        -:   32:    /**
+        -:   33:     * * Redimensioneaza vectorul de elemente
+        -:   34:     * * Complexitatea este theta(n)
+        -:   35:     */
+       19:   36:    this->capacitate *= 2;
+      19*:   37:    auto *aux = new TElem[this->capacitate];
+       19:   37-block  0
+branch  0 taken 19 (fallthrough)
+branch  1 taken 0
+       19:   37-block  1
+    %%%%%:   37-block  2
 call    2 never executed
-       18:   12-block  3
-call    3 returned 18
-   205037:   13:    for (int i = 0; i < this->dimensiune; i++)
-   205037:   13-block  0
-branch  0 taken 205019
-branch  1 taken 18 (fallthrough)
-   205019:   14:        aux[i] = this->elemente[i];
-   205019:   14-block  0
-       18:   15:    delete[] this->elemente;
-       18:   15-block  0
-branch  0 taken 18 (fallthrough)
+       19:   37-block  3
+call    3 returned 19
+   205042:   38:    for (int i = 0; i < this->dimensiune; i++)
+   205042:   38-block  0
+branch  0 taken 205023
+branch  1 taken 19 (fallthrough)
+   205023:   39:        aux[i] = this->elemente[i];
+   205023:   39-block  0
+       19:   40:    delete[] this->elemente;
+       19:   40-block  0
+branch  0 taken 19 (fallthrough)
 branch  1 taken 0
-       18:   15-block  1
-call    2 returned 18
-       18:   16:    this->elemente = aux;
-       18:   17:}
-        -:   18:
-function _ZN13VectorDinamicC2Ei called 7 returned 100% blocks executed 80%
-        7:   19:VectorDinamic::VectorDinamic(int cp) {
-        7:   20:    this->capacitate = cp;
-        7:   21:    this->dimensiune = 0;
-       7*:   22:    this->elemente = new TElem[cp];
-        7:   22-block  0
-branch  0 taken 7 (fallthrough)
+       19:   40-block  1
+call    2 returned 19
+       19:   41:    this->elemente = aux;
+       19:   42:}
+        -:   43:
+function _ZN13VectorDinamicC2Ei called 8 returned 100% blocks executed 80%
+        8:   44:VectorDinamic::VectorDinamic(int cp) {
+        -:   45:    /**
+        -:   46:     * * Constructorul clasei VectorDinamic
+        -:   47:     * * Complexitatea este theta(1)
+        -:   48:     */
+        8:   49:    this->capacitate = cp;
+        8:   50:    this->dimensiune = 0;
+       8*:   51:    this->elemente = new TElem[cp];
+        8:   51-block  0
+branch  0 taken 8 (fallthrough)
 branch  1 taken 0
-        7:   22-block  1
-    %%%%%:   22-block  2
+        8:   51-block  1
+    %%%%%:   51-block  2
 call    2 never executed
-        7:   22-block  3
-call    3 returned 7
-        7:   23:}
-        -:   24:
-function _ZN13VectorDinamicD2Ev called 7 returned 100% blocks executed 100%
-        7:   25:VectorDinamic::~VectorDinamic() {
-        7:   26:    delete[] this->elemente;
-        7:   26-block  0
-branch  0 taken 7 (fallthrough)
+        8:   51-block  3
+call    3 returned 8
+        8:   52:}
+        -:   53:
+function _ZN13VectorDinamicD2Ev called 8 returned 100% blocks executed 100%
+        8:   54:VectorDinamic::~VectorDinamic() {
+        8:   55:    delete[] this->elemente;
+        8:   55-block  0
+branch  0 taken 8 (fallthrough)
 branch  1 taken 0
-        7:   26-block  1
-call    2 returned 7
-        7:   27:}
-        -:   28:
-function _ZNK13VectorDinamic3dimEv called 1200808 returned 100% blocks executed 100%
-  1200808:   29:int VectorDinamic::dim() const{
-  1200808:   30:    return this->dimensiune;
-  1200808:   30-block  0
-        -:   31:}
-        -:   32:
+        8:   55-block  1
+call    2 returned 8
+        8:   56:}
+        -:   57:
+function _ZNK13VectorDinamic3dimEv called 1200809 returned 100% blocks executed 100%
+  1200809:   58:int VectorDinamic::dim() const{
+        -:   59:    /**
+        -:   60:     * * Returneaza dimensiunea vectorului
+        -:   61:     * * Complexitatea este theta(1)
+        -:   62:     */
+  1200809:   63:    return this->dimensiune;
+  1200809:   63-block  0
+        -:   64:}
+        -:   65:
 function _ZNK13VectorDinamic7elementEi called 200439 returned 100% blocks executed 100%
-   200439:   33:TElem VectorDinamic::element(int i) const{
-   200439:   34:    if (i >= 0 && i < this->dimensiune)
-   200439:   34-block  0
+   200439:   66:TElem VectorDinamic::element(int i) const{
+        -:   67:    /**
+        -:   68:     * * Returneaza elementul de pe pozitia i
+        -:   69:     * * Complexitatea este theta(1)
+        -:   70:     */
+   200439:   71:    if (i >= 0 && i < this->dimensiune)
+   200439:   71-block  0
 branch  0 taken 200439 (fallthrough)
 branch  1 taken 0
-   200439:   34-block  1
+   200439:   71-block  1
 branch  2 taken 200438 (fallthrough)
 branch  3 taken 1
-   200438:   35:        return this->elemente[i];
-   200438:   35-block  0
-        1:   36:    return -1;
-        1:   36-block  0
-        -:   37:}
-        -:   38:
-function _ZN13VectorDinamic13adaugaSfarsitEi called 200413 returned 100% blocks executed 100%
-   200413:   39:void VectorDinamic::adaugaSfarsit(TElem e) {
-   200413:   40:    if (this->dimensiune == this->capacitate)
-   200413:   40-block  0
-branch  0 taken 15 (fallthrough)
-branch  1 taken 200398
-       15:   41:        this->redim();
-       15:   41-block  0
-call    0 returned 15
-   200413:   42:    this->elemente[this->dimensiune] = e;
-   200413:   43:    this->dimensiune++;
-   200413:   44:}
-        -:   45:
+   200438:   72:        return this->elemente[i];
+   200438:   72-block  0
+        1:   73:    return -1;
+        1:   73-block  0
+        -:   74:}
+        -:   75:
+function _ZN13VectorDinamic13adaugaSfarsitEi called 200418 returned 100% blocks executed 100%
+   200418:   76:void VectorDinamic::adaugaSfarsit(TElem e) {
+        -:   77:    /**
+        -:   78:     * * Adauga un element la sfarsitul vectorului
+        -:   79:     * * Complexitatea este theta(1) in cazul in care nu este nevoie de redimensionare
+        -:   80:     * * Complexitatea este theta(n) in cazul in care este nevoie de redimensionare
+        -:   81:     * * Complexitatea totala este O(n)
+        -:   82:     */
+   200418:   83:    if (this->dimensiune == this->capacitate)
+   200418:   83-block  0
+branch  0 taken 16 (fallthrough)
+branch  1 taken 200402
+       16:   84:        this->redim();
+       16:   84-block  0
+call    0 returned 16
+   200418:   85:    this->elemente[this->dimensiune] = e;
+   200418:   86:    this->dimensiune++;
+   200418:   87:}
+        -:   88:
 function _ZN13VectorDinamic6adaugaEii called 12 returned 100% blocks executed 100%
-       12:   46:void VectorDinamic::adauga(int i, TElem e) {
-       12:   47:    if (i >= 0 && i <= this->dimensiune)
-       12:   47-block  0
+       12:   89:void VectorDinamic::adauga(int i, TElem e) {
+        -:   90:    /**
+        -:   91:     * * Adauga un element pe pozitia i
+        -:   92:     * * Complexitatea este theta(n)
+        -:   93:     */
+       12:   94:    if (i >= 0 && i <= this->dimensiune)
+       12:   94-block  0
 branch  0 taken 12 (fallthrough)
 branch  1 taken 0
-       12:   47-block  1
+       12:   94-block  1
 branch  2 taken 12 (fallthrough)
 branch  3 taken 0
-        -:   48:    {
-       12:   49:        if (this->dimensiune == this->capacitate)
-       12:   49-block  0
+        -:   95:    {
+       12:   96:        if (this->dimensiune == this->capacitate)
+       12:   96-block  0
 branch  0 taken 3 (fallthrough)
 branch  1 taken 9
-        3:   50:            this->redim();
-        3:   50-block  0
+        3:   97:            this->redim();
+        3:   97-block  0
 call    0 returned 3
-       52:   51:        for (int j = this->dimensiune; j > i; j--)
-       12:   51-block  0
-       52:   51-block  1
+       52:   98:        for (int j = this->dimensiune; j > i; j--)
+       12:   98-block  0
+       52:   98-block  1
 branch  0 taken 40
 branch  1 taken 12 (fallthrough)
-       40:   52:            this->elemente[j] = this->elemente[j - 1];
-       40:   52-block  0
-       12:   53:        this->elemente[i] = e;
-       12:   54:        this->dimensiune++;
-       12:   54-block  0
-        -:   55:    }
-       12:   56:}
-        -:   57:
+       40:   99:            this->elemente[j] = this->elemente[j - 1];
+       40:   99-block  0
+       12:  100:        this->elemente[i] = e;
+       12:  101:        this->dimensiune++;
+       12:  101-block  0
+        -:  102:    }
+       12:  103:}
+        -:  104:
 function _ZN13VectorDinamic8modificaEii called 3 returned 100% blocks executed 100%
-        3:   58:TElem VectorDinamic::modifica(int i, TElem e) {
-        3:   59:    if (i >= 0 && i < this->dimensiune) {
-        3:   59-block  0
+        3:  105:TElem VectorDinamic::modifica(int i, TElem e) {
+        -:  106:    /**
+        -:  107:     * * Modifica elementul de pe pozitia i
+        -:  108:     * * Complexitatea este theta(1)
+        -:  109:     */
+        3:  110:    if (i >= 0 && i < this->dimensiune) {
+        3:  110-block  0
 branch  0 taken 3 (fallthrough)
 branch  1 taken 0
-        3:   59-block  1
+        3:  110-block  1
 branch  2 taken 2 (fallthrough)
 branch  3 taken 1
-        2:   60:        TElem old = this->elemente[i];
-        2:   61:        this->elemente[i] = e;
-        2:   62:        return old;
-        2:   62-block  0
-        -:   63:    }
-        1:   64:    return -1;
-        1:   64-block  0
-        -:   65:}
-        -:   66:
-function _ZN13VectorDinamic6stergeEi called 200305 returned 100% blocks executed 100%
-   200305:   67:TElem VectorDinamic::sterge(int i) {
-   200305:   68:    if (i >= 0 && i < this->dimensiune) {
-   200305:   68-block  0
-branch  0 taken 200305 (fallthrough)
+        2:  111:        TElem old = this->elemente[i];
+        2:  112:        this->elemente[i] = e;
+        2:  113:        return old;
+        2:  113-block  0
+        -:  114:    }
+        1:  115:    return -1;
+        1:  115-block  0
+        -:  116:}
+        -:  117:
+function _ZN13VectorDinamic6stergeEi called 200308 returned 100% blocks executed 100%
+   200308:  118:TElem VectorDinamic::sterge(int i) {
+        -:  119:    /**
+        -:  120:     * * Sterge elementul de pe pozitia i
+        -:  121:     * * Complexitatea este theta(n)
+        -:  122:     */
+   200308:  123:    if (i >= 0 && i < this->dimensiune) {
+   200308:  123-block  0
+branch  0 taken 200308 (fallthrough)
 branch  1 taken 0
-   200305:   68-block  1
-branch  2 taken 200304 (fallthrough)
+   200308:  123-block  1
+branch  2 taken 200307 (fallthrough)
 branch  3 taken 1
-   200304:   69:        TElem old = this->elemente[i];
-   215360:   70:        for (int j = i; j < this->dimensiune - 1; j++)
-   200304:   70-block  0
-   215360:   70-block  1
-branch  0 taken 15056
-branch  1 taken 200304 (fallthrough)
-    15056:   71:            this->elemente[j] = this->elemente[j + 1];
-    15056:   71-block  0
-   200304:   72:        this->dimensiune--;
-   200304:   73:        return old;
-   200304:   73-block  0
-        -:   74:    }
-        1:   75:    return -1;
-        1:   75-block  0
-        -:   76:}
-        -:   77:
+   200307:  124:        TElem old = this->elemente[i];
+   215366:  125:        for (int j = i; j < this->dimensiune - 1; j++)
+   200307:  125-block  0
+   215366:  125-block  1
+branch  0 taken 15059
+branch  1 taken 200307 (fallthrough)
+    15059:  126:            this->elemente[j] = this->elemente[j + 1];
+    15059:  126-block  0
+   200307:  127:        this->dimensiune--;
+   200307:  128:        return old;
+   200307:  128-block  0
+        -:  129:    }
+        1:  130:    return -1;
+        1:  130-block  0
+        -:  131:}
+        -:  132:
 function _ZN13VectorDinamic8iteratorEv called 6 returned 100% blocks executed 100%
-        6:   78:IteratorVectorDinamic VectorDinamic::iterator() {
-        6:   79:    return IteratorVectorDinamic(*this);
-        6:   79-block  0
+        6:  133:IteratorVectorDinamic VectorDinamic::iterator() {
+        6:  134:    return IteratorVectorDinamic(*this);
+        6:  134-block  0
 call    0 returned 6
-        -:   80:}
-        -:   81:
-        -:   82:
-        -:   83:
-        -:   84:
-        -:   85:
+        -:  135:}
+        -:  136:
+function _ZN13VectorDinamic12eliminaIntreEii called 6 returned 17% blocks executed 100%
+        6:  137:void VectorDinamic::eliminaIntre(int i, int j) {
+        -:  138:    /**
+        -:  139:     * Conditii:
+        -:  140:     *      pre:
+        -:  141:     *          vector -> VectorDinamic, unde dimensiunea lenght=vector.dim()
+        -:  142:     *          i, j -> int
+        -:  143:     *
+        -:  144:     *      post:
+        -:  145:     *          vector' -> VectorDinamic, unde lenght' = lenght - (j - i + 1)
+        -:  146:     *
+        -:  147:     * Pseudocod:
+        -:  148:     *      eliminaIntre(vector, i, j):
+        -:  149:     *      |    daca i < 0 sau j < 0 sau i >= vector.dimensiune sau j >= vector.dimensiune atunci:
+        -:  150:     *      |    |   arunca exceptie "Pozitii invalide"
+        -:  151:     *      |    ++
+        -:  152:     *      |    daca i > j atucni:
+        -:  153:     *      |    |   arunca exceptie "Pozitii invalide"
+        -:  154:     *      |    ++
+        -:  155:     *      |    pentru k = j; k >= i; k -= 1 executa:
+        -:  156:     *      |    |   sterge(vector, k)
+        -:  157:     *      |    ++
+        -:  158:     *      ++
+        -:  159:     *
+        -:  160:     * Complexitate:
+        -:  161:     *      Best case (i == j || j < i || i < 0 || j < 0 || i >= vector.dim() || j >= vector.dim()): theta(1)
+        -:  162:     *      Worst case (i == 0 && j == vector.dim() - 1): theta(n)
+        -:  163:     *      Avg case (i < j): theta(j - i) <=> theta(n)
+        -:  164:     *
+        -:  165:     *      Complexitate generala: O(n)
+        -:  166:     */
+        6:  167:    if (i < 0 || i >= this->dimensiune || j < 0 || j >= this->dimensiune)
+        6:  167-block  0
+branch  0 taken 5 (fallthrough)
+branch  1 taken 1
+        5:  167-block  1
+branch  2 taken 4 (fallthrough)
+branch  3 taken 1
+        4:  167-block  2
+branch  4 taken 3 (fallthrough)
+branch  5 taken 1
+        3:  167-block  3
+branch  6 taken 1 (fallthrough)
+branch  7 taken 2
+        4:  168:        throw -1;
+        4:  168-block  0
+call    0 returned 4
+call    1 returned 0
+        2:  169:    if (i > j)
+        2:  169-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 1
+        1:  170:        throw -1;
+        1:  170-block  0
+call    0 returned 1
+call    1 returned 0
+        4:  171:    for (int k = j; k >= i; k--)
+        1:  171-block  0
+        4:  171-block  1
+branch  0 taken 3
+branch  1 taken 1 (fallthrough)
+        3:  172:        this->sterge(k);
+        3:  172-block  0
+call    0 returned 3
+        1:  173:}
+        -:  174:
+        -:  175:
+        -:  176:
+        -:  177:
+        -:  178:

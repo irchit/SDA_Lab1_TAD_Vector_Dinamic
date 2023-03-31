@@ -24,13 +24,13 @@ public:
     [[nodiscard]] int dim() const;
     [[nodiscard]] TElem element(int) const;
     [[nodiscard]] TElem modifica(int, TElem);
+    [[nodiscard]] int elementeUnice(int st, int dr) const;
+    void eliminaIntre(int i, int j);
     void adaugaSfarsit(TElem);
     void adauga(int, TElem);
     [[nodiscard]] TElem sterge(int);
     IteratorVectorDinamic iterator();
     ~VectorDinamic();
-
-    int elementeUnice(int st, int dr) const;
 };
 
 #endif //CODE_VECTORDINAMIC_H
