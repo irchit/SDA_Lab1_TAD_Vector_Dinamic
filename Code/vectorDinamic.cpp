@@ -152,7 +152,7 @@ void VectorDinamic::eliminaIntre(int i, int j) {
      *      |    daca i > j atucni:
      *      |    |   arunca exceptie "Pozitii invalide"
      *      |    ++
-     *      |    pentru k = j; k >= i; k -= 1 executa:
+     *      |    pentru k <- j, i, -1 executa:
      *      |    |   sterge(vector, k)
      *      |    ++
      *      ++
