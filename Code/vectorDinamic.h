@@ -29,6 +29,8 @@ public:
     [[nodiscard]] TElem sterge(int);
     IteratorVectorDinamic iterator();
     ~VectorDinamic();
+
+    int elementeUnice(int st, int dr) const;
 };
 
 #endif //CODE_VECTORDINAMIC_H
